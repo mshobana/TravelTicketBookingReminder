@@ -10,19 +10,23 @@ import java.util.Calendar;
 
 public class SendReminderService extends BroadcastReceiver {
     public void onReceive(Context context, Intent intent) {
-
         HolidaysDataStore holidaysDataStore = new HolidaysDataStore(context);
         ArrayList<Holiday> holidays = holidaysDataStore.getAll();
 
         if(holidays!=null){
+        String holidayName="";
         for(int i = 0;i < holidays.size();i++){
-            Holiday holiday = holidays.get(i);
+           Holiday holiday = holidays.get(i);
+
            if(holiday.isTomorrow())
            {
-               Toast.makeText(context,"Book ticket for "+holiday.Name,Toast.LENGTH_SHORT).show();
-               break; //assuming that duplicate days with diff names will be habdled while inserting data into table
+             holidayName=holidayName+ ","+ holiday.Name;
            }
          }
+           if(!holidayName.isEmpty()){
+               holidayName=holidayName.substring(1,holidayName.length());
+               Toast.makeText(context, "Book ticket for " + holidayName, Toast.LENGTH_SHORT).show();
+           }
        }
       }
     }

@@ -1,5 +1,6 @@
 package com.example.TravelTicketBookingReminder;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -10,7 +11,7 @@ import static com.example.TravelTicketBookingReminder.HolidaysTable.*;
 
 public class HolidaysDataStore {
         private static final String DATABASE_NAME = "holidays.db";
-        private static final int DB_VERSION = 2;
+        private static final int DB_VERSION = 3;
         private final SQLiteDatabase writableDatabase;
 
         public HolidaysDataStore(Context context) {
@@ -33,5 +34,17 @@ public class HolidaysDataStore {
             cursor.close();
     }
         return holidayList;
+    }
+
+    public void insert(String name, int month, int dayOfMonth) {
+        ContentValues contentValues=new ContentValues();
+        contentValues.put(COLUMN_NAME,name);
+        contentValues.put(COLUMN_MONTH,month);
+        contentValues.put(COLUMN_DAY_OF_MONTH, dayOfMonth);
+        writableDatabase.insert(TABLE_NAME,null,contentValues);
+    }
+
+    public void deleteAllHolidays() {
+       writableDatabase.delete(TABLE_NAME,null,null);
     }
 }

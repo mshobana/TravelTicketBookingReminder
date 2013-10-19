@@ -27,22 +27,6 @@ public class HolidaysTable extends SQLiteOpenHelper{
                     + COLUMN_NAME + " TEXT, "
                     + COLUMN_MONTH + " INTEGER DEFAULT 0, "
                     + COLUMN_DAY_OF_MONTH + " INT DEFAULT 0)");
-            ContentValues contentValues = new ContentValues();
-
-                contentValues.put(COLUMN_NAME,"Diwali");
-                contentValues.put(COLUMN_MONTH,11);
-                contentValues.put(COLUMN_DAY_OF_MONTH,2);
-                sqLiteDatabase.insert(TABLE_NAME, null, contentValues);
-
-                contentValues.put(COLUMN_NAME,"Pongal");
-                contentValues.put(COLUMN_MONTH,9);
-                contentValues.put(COLUMN_DAY_OF_MONTH,20);
-                sqLiteDatabase.insert(TABLE_NAME, null, contentValues);
-
-                contentValues.put(COLUMN_NAME,"Ramzan");
-                contentValues.put(COLUMN_MONTH,9);
-                contentValues.put(COLUMN_DAY_OF_MONTH,20);
-                sqLiteDatabase.insert(TABLE_NAME, null, contentValues);
         }
 
         @Override
