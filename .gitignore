@@ -1,0 +1,18 @@
+gnore local project files
+*.iml
+*.ipr
+*.iws
+local.properties
+
+#build
+build.xml
+out/
+
+#other
+proguard-project.txt
+#generated files
+bin/
+gen/
+
+#IDEA
+.idea/
