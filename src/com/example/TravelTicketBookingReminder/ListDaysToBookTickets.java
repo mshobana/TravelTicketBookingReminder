@@ -6,7 +6,6 @@ import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import com.example.R;
 
 import java.util.Calendar;
 
@@ -23,6 +22,7 @@ public class ListDaysToBookTickets extends Activity {
         Calendar calendar = setCalendar();
         createPendingIntent();
         setAlarmWithRepeatingTask(calendar);
+
     }
 
     private void setAlarmWithRepeatingTask(Calendar calendar) {
